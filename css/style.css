@@ -1,0 +1,275 @@
+/* Custom Theme Styling for Bushenyi Hostel Booking & Management System */
+:root {
+    --primary-color: #1a73e8;
+    --primary-hover: #1557b0;
+    --primary-light: #e8f0fe;
+    --dark-navy: #0d1b2a;
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+    --hover-shadow: 0 15px 35px rgba(26, 115, 232, 0.15);
+    --momo-yellow: #ffcc00;
+    --momo-dark: #222222;
+    --airtel-red: #e60000;
+    --airtel-hover: #cc0000;
+    --airtel-light: #fff0f0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background-color: #f6f9fc;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar-custom {
+    background-color: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    padding: 0.8rem 1rem;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    color: var(--primary-color) !important;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #4a5568;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero-header {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    color: #ffffff;
+    padding: 4rem 1rem 5rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #f6f9fc;
+    border-radius: 50% 50% 0 0;
+}
+
+.search-box-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: -2.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* Hostel Cards */
+.hostel-card {
+    border: none;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hostel-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--hover-shadow);
+}
+
+.hostel-img-wrapper {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+    background-color: #e9ecef;
+}
+
+.hostel-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.hostel-card:hover .hostel-img-wrapper img {
+    transform: scale(1.06);
+}
+
+.badge-type {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(13, 27, 42, 0.85);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-location {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(26, 115, 232, 0.9);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+/* Facility Badges */
+.facility-pill {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-right: 4px;
+    margin-bottom: 6px;
+}
+
+/* Stat Cards */
+.stat-card {
+    border: none;
+    border-radius: 1rem;
+    background: #ffffff;
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-right: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* MTN Mobile Money & Airtel Money Gateway Styling */
+.momo-header {
+    background-color: var(--momo-yellow);
+    color: var(--momo-dark);
+    padding: 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+    font-weight: 800;
+}
+
+.momo-card {
+    border: 2px solid var(--momo-yellow);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 204, 0, 0.2);
+}
+
+.airtel-header {
+    background-color: var(--airtel-red);
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+    font-weight: 800;
+}
+
+.airtel-card {
+    border: 2px solid var(--airtel-red);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(230, 0, 0, 0.2);
+}
+
+.btn-airtel {
+    background-color: var(--airtel-red);
+    border-color: var(--airtel-red);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.btn-airtel:hover {
+    background-color: var(--airtel-hover);
+    border-color: var(--airtel-hover);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(230, 0, 0, 0.3);
+}
+
+/* Buttons & Inputs */
+.btn-primary-theme {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 0.6rem;
+    padding: 0.6rem 1.4rem;
+    transition: all 0.2s ease;
+}
+
+.btn-primary-theme:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+}
+
+.form-control, .form-select {
+    border-radius: 0.6rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid #dce2e6;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(26, 115, 232, 0.15);
+}
+
+/* Auth Pages */
+.auth-wrapper {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 450px;
+    border: none;
+    border-radius: 1.2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    background-color: var(--dark-navy);
+    color: #a0aec0;
+}
