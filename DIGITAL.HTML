@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Onesmas Digital Hub | Learning Technology. Repairing the Future.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Onesmas Digital Hub – electronics repair, computer services, and digital skills training." />
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #facc15;
+      --bg: #020617;
+      --bg-soft: #020617;
+      --card: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --radius: 14px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      backdrop-filter: blur(18px);
+      position: sticky;
+      top: 0.75rem;
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: conic-gradient(from 210deg, #22c55e, #0ea5e9, #6366f1, #22c55e);
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 11px;
+      background: radial-gradient(circle at 20% 0, #1e293b 0, #020617 55%, #000 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5e7eb;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-text h1 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    nav a {
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #e5e7eb;
+      background: rgba(148, 163, 184, 0.12);
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.95rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #e5e7eb;
+      font-weight: 500;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+      border: 1px solid rgba(191, 219, 254, 0.4);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
+      margin-top: 2.25rem;
+      align-items: center;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.6rem 0.25rem 0.25rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      width: fit-content;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .hero-pill-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #22c55e 0, #16a34a 40%, #166534 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5e7eb;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #38bdf8, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .btn-primary {
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.55);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-ghost {
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--muted);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: #e5e7eb;
+      font-size: 0.9rem;
+    }
+
+    /* Hero right */
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: 24px;
+      background: radial-gradient(circle at 0 0, #1d4ed8 0, #020617 45%, #000 100%);
+      padding: 1.4rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+
+    .hero-chip {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(191, 219, 254, 0.5);
+      font-size: 0.7rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-service {
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 16px;
+      padding: 0.7rem 0.75rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .hero-service span {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .hero-service strong {
+      font-size: 0.85rem;
+    }
+
+    .hero-tagline {
+      margin-top: 0.9rem;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 1.1rem;
+      bottom: 1.1rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(251, 191, 36, 0.7);
+      font-size: 0.7rem;
+      color: #facc15;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* Sections */
+    section {
+      margin-top: 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .section-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 26rem;
+    }
+
+    /* Services */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: var(--radius);
+      padding: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+      font-size: 0.85rem;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .card ul li::before {
+      content: "• ";
+      color: #22c55e;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Two-column section */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .stat {
+      padding: 0.6rem 0.7rem;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      min-width: 7rem;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+
+    .quote {
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .quote-name {
+      font-weight: 500;
+      font-size: 0.85rem;
+    }
+
+    .quote-role {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .contact-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-list strong {
+      color: #e5e7eb;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .contact-form label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.55rem 0.7rem;
+      color: #e5e7eb;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .contact-form textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      align-self: flex-start;
+      margin-top: 0.2rem;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(30, 64, 175, 0.7);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    footer span strong {
+      color: #e5e7eb;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 18px;
+      }
+      nav {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .testimonials {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .two-col,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid-3,
+      .testimonials {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      header {
+        padding-inline: 1rem;
+      }
+      .page {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="brand-logo">
+          <div class="brand-logo-inner">OD</div>
+        </div>
+        <div class="brand-text">
+          <h1>Onesmas Digital Hub</h1>
+          <span>Learning Technology. Repairing the Future.</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#training">Training</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#about" class="nav-cta">About Hub</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-left">
+          <div class="hero-pill">
+            <div class="hero-pill-dot">UG</div>
+            Onesmas Digital Hub • Ishaka & Beyond
+          </div>
+          <h2 class="hero-title">
+            Hands‑on <span>repairs</span> and <span>digital skills</span> for the next generation of tech minds.
+          </h2>
+          <p class="hero-sub">
+            We fix laptops, phones, and networks—and teach you how technology really works through practical,
+            lab‑based learning and real client projects.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Book a repair
+              <span>→</span>
+            </button>
+            <button class="btn-ghost" onclick="document.getElementById('training').scrollIntoView({behavior:'smooth'})">
+              View training programs
+            </button>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <strong>100+ devices</strong><br />
+              Repaired and optimized
+            </div>
+            <div>
+              <strong>Practical labs</strong><br />
+              Hardware • Software • Networks
+            </div>
+            <div>
+              <strong>Student‑friendly</strong><br />
+              Clear, step‑by‑step guidance
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-header">
+              <span>Live Service Snapshot</span>
+              <span class="hero-chip">Onesmas Digital Hub</span>
+            </div>
+            <div class="hero-grid">
+              <div class="hero-service">
+                <span>Device Care</span>
+                <strong>Laptop &amp; PC Repairs</strong>
+                <span>Diagnostics, cleaning, OS install, performance tuning.</span>
+              </div>
+              <div class="hero-service">
+                <span>Mobile</span>
+                <strong>Phone Flashing</strong>
+                <span>Firmware, unlocks, app setup, data backup.</span>
+              </div>
+              <div class="hero-service">
+                <span>Networks</span>
+                <strong>Wi‑Fi &amp; LAN Setup</strong>
+                <span>Home, hostel, and small office networks.</span>
+              </div>
+              <div class="hero-service">
+                <span>Skills</span>
+                <strong>Digital Training</strong>
+                <span>Computer basics, coding, and repair skills.</span>
+              </div>
+            </div>
+            <p class="hero-tagline">
+              “From broken devices to confident users—every repair is a learning opportunity.”
+            </p>
+            <div class="hero-badge">
+              ● Active today
+              <span>|</span>
+              Quick diagnostics available
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Core repair &amp; tech services</h2>
+            <p class="section-sub">
+              Professional, student‑friendly services designed for reliability, clarity, and long‑term performance.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="badge">Laptops &amp; Desktops</div>
+            <h3>Hardware diagnostics &amp; repair</h3>
+            <p>
+              Full check‑up for slow, overheating, or non‑booting machines with clear explanations of every step.
+            </p>
+            <ul>
+              <li>Performance and boot issues</li>
+              <li>RAM, HDD/SSD, battery checks</li>
+              <li>Thermal cleaning &amp; paste</li>
+              <li>Component upgrade advice</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="badge">Phones &amp; Tablets</div>
+            <h3>Software flashing &amp; setup</h3>
+            <p>
+              Clean installs, firmware flashing, and app setup to keep your mobile devices secure and responsive.
+            </p>
+            <ul>
+              <li>OS flashing &amp; updates</li>
+              <li>Account &amp; app setup</li>
+              <li>Storage clean‑up</li>
+              <li>Basic data backup guidance</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="badge">Networks</div>
+            <h3>Home &amp; small office networking</h3>
+            <p>
+              Stable Wi‑Fi and LAN setups for students, hostels, and small businesses that just need to work.
+            </p>
+            <ul>
+              <li>Router configuration</li>
+              <li>LAN cabling &amp; layout</li>
+              <li>Basic security setup</li>
+              <li>Speed &amp; coverage checks</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Training -->
+      <section id="training">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Digital skills &amp; practical labs</h2>
+            <p class="section-sub">
+              Learn by doing—short, focused sessions that turn theory into real troubleshooting and repair skills.
+            </p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <h3>Training tracks</h3>
+            <p>
+              Whether you are a beginner or a tech student, Onesmas Digital Hub gives you structured, practical
+              learning with real devices and real problems.
+            </p>
+            <ul>
+              <li>Computer basics &amp; productivity tools</li>
+              <li>PC assembly, OS installation, and drivers</li>
+              <li>Intro to programming &amp; problem solving</li>
+              <li>Networking fundamentals and router setup</li>
+              <li>Electronics repair basics (phones &amp; laptops)</li>
+            </ul>
+            <p style="margin-top:0.6rem;color:var(--muted);font-size:0.8rem;">
+              Sessions can be one‑on‑one or small group, with clear notes and step‑by‑step guidance.
+            </p>
+          </div>
+
+          <div>
+            <div class="card">
+              <h3>Why learn with Onesmas Digital Hub?</h3>
+              <p>
+                You don’t just watch—you touch, test, and fix. Every session is built around real tools and real
+                scenarios.
+              </p>
+              <div class="stat-row">
+                <div class="stat">
+                  <strong>Lab‑style</strong>
+                  Guided, hands‑on practice
+                </div>
+                <div class="stat">
+                  <strong>Project‑based</strong>
+                  Build confidence with real tasks
+                </div>
+              </div>
+              <div class="stat-row">
+                <div class="stat">
+                  <strong>Clear notes</strong>
+                  Exam‑friendly explanations
+                </div>
+                <div class="stat">
+                  <strong>Flexible</strong>
+                  Evening &amp; weekend sessions
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects / Portfolio -->
+      <section id="projects">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Selected projects &amp; experience</h2>
+            <p class="section-sub">
+              A mix of repair work, network setups, and software projects that reflect real‑world needs.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="badge">Repairs</div>
+            <h3>Student laptop recovery</h3>
+            <p>
+              Diagnosed and restored multiple non‑booting laptops with data‑safe OS reinstalls and performance tuning.
+            </p>
+            <ul>
+              <li>Boot repair &amp; OS reinstallation</li>
+              <li>Data safety checks</li>
+              <li>Thermal cleaning &amp; optimization</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="badge">Networking</div>
+            <h3>Hostel Wi‑Fi optimization</h3>
+            <p>
+              Redesigned a small hostel network for better coverage, speed, and device management.
+            </p>
+            <ul>
+              <li>Router placement &amp; tuning</li>
+              <li>Channel &amp; bandwidth planning</li>
+              <li>Basic security configuration</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="badge">Software &amp; Web</div>
+            <h3>Tech service websites</h3>
+            <p>
+              Clean, responsive websites for repair services and digital hubs, focused on clarity and trust.
+            </p>
+            <ul>
+              <li>Service landing pages</li>
+              <li>Contact &amp; booking sections</li>
+              <li>Mobile‑friendly layouts</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- About & Testimonials -->
+      <section id="about">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">About Onesmas Digital Hub</h2>
+            <p class="section-sub">
+              Built by a computer engineer and technician who believes every repair and every lesson should be clear,
+              honest, and practical.
+            </p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <h3>Our mission</h3>
+            <p>
+              Onesmas Digital Hub exists to bridge the gap between everyday users, students, and the fast‑moving world
+              of technology. We focus on:
+            </p>
+            <ul>
+              <li>Reliable repairs with transparent communication</li>
+              <li>Teaching the “why” behind every fix</li>
+              <li>Empowering students with exam‑ready, practical knowledge</li>
+              <li>Supporting small businesses with stable tech setups</li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="card">
+              <h3>What people say</h3>
+              <div class="testimonials">
+                <div>
+                  <p class="quote">
+                    “My laptop was too slow to use. After the service, it feels brand new—and I understand what was
+                    done.”
+                  </p>
+                  <p class="quote-name">Final‑year student</p>
+                  <p class="quote-role">Laptop optimization &amp; OS reinstall</p>
+                </div>
+                <div>
+                  <p class="quote">
+                    “The Wi‑Fi in our hostel used to drop all the time. Now it’s stable, even in peak hours.”
+                  </p>
+                  <p class="quote-name">Hostel manager</p>
+                  <p class="quote-role">Network setup &amp; tuning</p>
+                </div>
+                <div>
+                  <p class="quote">
+                    “The training sessions are simple, practical, and straight to the point—perfect for engineering
+                    students.”
+                  </p>
+                  <p class="quote-name">Computer engineering student</p>
+                  <p class="quote-role">Digital skills &amp; repair basics</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Book a repair or training session</h2>
+            <p class="section-sub">
+              Reach out for device diagnostics, network help, or to schedule a digital skills session.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card">
+            <h3>Contact details</h3>
+            <ul class="contact-list">
+              <li><strong>Business:</strong> Onesmas Digital Hub</li>
+              <li><strong>Location:</strong> Ishaka, Western Uganda (and surrounding areas)</li>
+              <li><strong>Phone / WhatsApp:</strong> +256782209213</li>
+              <li><strong>Email:</strong> onesmasdigitalhub@gmail.com</li>
+              <li><strong>Hours:</strong> Mon–Sat, 9:00 AM – 7:00 PM</li>
+            </ul>
+            <p style="margin-top:0.6rem;">
+              You can also send a quick message using the form—describe your issue or what you want to learn, and you’ll
+              get a clear response with options.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Quick message</h3>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Form submission can be wired to backend or email service.');">
+              <label>
+                Name
+                <input type="text" placeholder="Your full name" required />
+              </label>
+              <label>
+                Phone or Email
+                <input type="text" placeholder="How can we reach you?" required />
+              </label>
+              <label>
+                What do you need?
+                <textarea placeholder="Describe your device issue or training interest..." required></textarea>
+              </label>
+              <button class="btn-primary" type="submit">
+                Send message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <span>
+        <strong>Onesmas Digital Hub</strong> — Learning Technology. Repairing the Future.
+      </span>
+      <span>© <span id="year"></span> Onesmas Digital Hub. All rights reserved.</span>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+<a href="index.html">create account</a>
+</body>
+</html>
