@@ -174,11 +174,11 @@ bushenyi_hostels/
 
 ## 🔑 Default Access Credentials
 
-| User Role | Email | Password | Access Link |
+| User Role | Email | Password | Access Lin |
 | :--- | :--- | :--- | :--- |
-| **System Admin** | `admin@gmail.com` | `admin123` | [admin/dashboard.php](http://localhost/bushenyi_hostels/admin/dashboard.php) |
-| **Hostel Owner** | `owner@gmail.com` | `owner123` | [owner/dashboard.php](http://localhost/bushenyi_hostels/owner/dashboard.php) |
-| **Student** | `student@gmail.com` | `student123` | [student/dashboard.php](http://localhost/bushenyi_hostels/student/dashboard.php) |
+| **System Admin** | `admink@gmail.com` | `admin123k` | [admin/dashboard.php](http://localhost/bushenyi_hostels/admin/dashboard.php) |
+| **Hostel Owner** | `ownerk@gmail.com` | `owner123k` | [owner/dashboard.php](http://localhost/bushenyi_hostels/owner/dashboard.php) |
+| **Student** | `studentk@gmail.com` | `student123k` | [student/dashboard.php](http://localhost/bushenyi_hostels/student/dashboard.php) |
 
 ---
 
