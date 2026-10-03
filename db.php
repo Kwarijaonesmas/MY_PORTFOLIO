@@ -1,14 +1,13 @@
 <?php
-// Central MySQLi Database Connection file for XAMPP
-// Host: localhost | User: root | Password: (empty) | Database: mydb
-
-$db_host = "localhost";
-$db_user = "root";
-$db_pass = "";
-$db_name = "mydb";
+// Use environment variables in hosted environments and XAMPP defaults locally.
+$db_host = getenv('DB_HOST') ?: 'localhost';
+$db_user = getenv('DB_USER') ?: 'root';
+$db_pass = getenv('DB_PASSWORD') ?: '';
+$db_name = getenv('DB_NAME') ?: 'mydb';
+$db_port = (int) (getenv('DB_PORT') ?: 3306);
 
 // First attempt connecting to MySQL server
-$conn = @new mysqli($db_host, $db_user, $db_pass);
+$conn = @new mysqli($db_host, $db_user, $db_pass, '', $db_port);
 
 if ($conn->connect_error) {
     die("<div style='font-family:sans-serif; padding:20px; background:#f8d7da; color:#721c24; border-radius:8px; margin:30px;'>

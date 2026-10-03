@@ -155,6 +155,40 @@ bushenyi_hostels/
 
 ## 🚀 Installation & Local Setup Guide
 
+### Deploying on Vercel
+
+This project uses PHP and MySQL. Vercel runs its PHP pages through the community
+`vercel-php` runtime configured in `vercel.json`; it does not provide the
+project's MySQL database.
+
+1. Create a hosted MySQL database that accepts connections from Vercel, and
+   import the schema from `database.sql`. That SQL file creates the default
+   admin account (`admin@gmail.com` / `admin123`); change its password
+   immediately or remove that account before making the site public. Do not
+   rely on the local XAMPP database or run `seed.php` against a production
+   database.
+2. Import this repository into Vercel with the repository root as the project
+   root. The included Vercel configuration handles PHP pages and maps `/` to
+   `index.php`.
+3. In the Vercel project settings, add these environment variables for each
+   deployment environment you use:
+
+   | Variable | Value |
+   | :--- | :--- |
+   | `DB_HOST` | Hosted database hostname |
+   | `DB_PORT` | Hosted database port (usually `3306`) |
+   | `DB_NAME` | Database name |
+   | `DB_USER` | Database username |
+   | `DB_PASSWORD` | Database password |
+
+4. Redeploy after saving the variables. If the PHP page loads but reports a
+   database connection error, verify the credentials and that the provider
+   allows connections from Vercel.
+
+Vercel's function filesystem is not persistent. Hostel photo uploads saved to
+`uploads/` will not be durable there; use persistent object storage for uploads
+before enabling them on a live deployment.
+
 ### Running via XAMPP Localhost (Recommended)
 
 1. **Start XAMPP**: Open **XAMPP Control Panel** and click **Start** for **Apache** and **MySQL**.
